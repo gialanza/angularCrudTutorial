@@ -136,5 +136,8 @@
       }
     }
   },
-  "defaultProject": "ngrx-entity-crud-prime-ng-boilerplate"
+  "defaultProject": "ngrx-entity-crud-prime-ng-boilerplate",
+  "cli": {
+    "analytics": false
+  }
 }
