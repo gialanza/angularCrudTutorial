@@ -1,29 +1,39 @@
-<p-dialog header="{{title}}"
-          [transitionOptions]="'150ms cubic-bezier(0, 0, 0.2, 1)'"
-          [visible]="true"
-          [modal]="true"
-          [responsive]="true"
-          [style]="{width: '70em', minWidth: '200px'}"
-          [minY]="70"
-          [maximizable]="false"
-          [closable]="false"
-          (onHide)="cancel()">
+<p-dialog header="{{title}}" [transitionOptions]="'150ms cubic-bezier(0, 0, 0.2, 1)'" [visible]="true" [modal]="true"
+  [responsive]="true" [style]="{width: '70em', minWidth: '200px'}" [minY]="70" [maximizable]="false" [closable]="false"
+  (onHide)="cancel()">
 
   <ng-template pTemplate="header">
-    <a (click)="cancel()" role="button" tabindex="0" class="ng-tns-c11-8 p-dialog-titlebar-icon p-dialog-titlebar-close ng-star-inserted"><span class="pi pi-times"></span></a>
+    <a (click)="cancel()" role="button" tabindex="0"
+      class="ng-tns-c11-8 p-dialog-titlebar-icon p-dialog-titlebar-close ng-star-inserted"><span
+        class="pi pi-times"></span></a>
   </ng-template>
 
   <div class="p-grid">
     <div class="p-col">
-      <form
-        class="dynamic-form"
-        [formGroup]="form">
-        <div *ngFor="let key of keys" class="p-grid">
+      <form class="dynamic-form" [formGroup]="form">
+
+        <div class="p-grid">
           <div class="p-col">
-            <label for="{{key}}"><strong>{{key}}</strong></label><br>
-            <input id="{{key}}" name="{{key}}" type="text" class="form-control" pInputText [formControlName]="key"/>
+            <label for="id"><strong>id</strong></label><br>
+            <input id="id" name="id" type="text" class="form-control" pInputText [formControl]="id" />
           </div>
         </div>
+
+        <div class="p-grid">
+          <div class="p-col">
+            <label for="name"><strong>name</strong></label><br>
+            <input id="name" name="name" type="text" class="form-control" pInputText [formControl]="name"/>
+            <app-form-error-msg [fc]="name"></app-form-error-msg>  <!-- componente da aggiungere -->
+          </div>
+        </div>
+
+        <div class="p-grid">
+          <div class="p-col">
+            <label for="value"><strong>value</strong></label><br>
+            <input id="value" name="value" type="text" class="form-control" pInputText [formControl]="value" />
+          </div>
+        </div>
+
       </form>
     </div>
     <div class="p-col">
@@ -35,7 +45,7 @@
 
 
   <ng-template pTemplate="footer">
-    <button pButton class="p-button-success mr-1" label="save" (click)="submit(form.getRawValue())"></button>
+    <button pButton class="p-button-success mr-1" label="save" (click)="submit(form.getRawValue())" [disabled]="!form.valid"></button>
     <button pButton type="button" label="Cancel" (click)="cancel()"></button>
   </ng-template>
 

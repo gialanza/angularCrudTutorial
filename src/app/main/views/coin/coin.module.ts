@@ -13,6 +13,7 @@ import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
 import {SearchModule} from '@components/search/search.module';
 import {PipesModule} from '@core/pipe/pipes.module';
+import { FormErrorMsgModule } from '@core/components/form-error-msg/form-error-msg.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {PipesModule} from '@core/pipe/pipes.module';
     ButtonModule,
     InputTextModule,
     PipesModule,
-    SearchModule
+    SearchModule,
+    FormErrorMsgModule
   ],
   providers: [],
   entryComponents: []
